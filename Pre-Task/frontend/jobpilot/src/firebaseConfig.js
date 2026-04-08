@@ -1,22 +1,22 @@
 // src/firebaseConfig.js
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";       // <--- ADDED THIS
-import { getFirestore } from "firebase/firestore"; // <--- ADDED THIS
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
+// Your web app's Firebase configuration from environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyDtmZ-3YRN-bxw6K4f__5X7NX08oFXzI-0",
-  authDomain: "jobpilot-internship.firebaseapp.com",
-  projectId: "jobpilot-internship",
-  storageBucket: "jobpilot-internship.firebasestorage.app",
-  messagingSenderId: "858683853388",
-  appId: "1:858683853388:web:78a26d74c1a321f92942e9",
-  measurementId: "G-KLNVDBVYPL"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 // Export Auth and Database so the app can use them
-export const auth = getAuth(app);       // <--- CRITICAL EXPORT
-export const db = getFirestore(app);    // <--- CRITICAL EXPORT
+export const auth = getAuth(app);
+export const db = getFirestore(app);
